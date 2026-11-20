@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <title>PHP JSON AJAX</title>
+  </head>
+  <body>
+    <h2>Welcome Form</h2>
+
+    <form id="myForm">
+      <label>Enter your name:</label>
+      <input type="text" id="name" required />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <h3>Response:</h3>
+    <p id="result"></p>
+
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let username = document.getElementById("name").value;
+
+          fetch("lab5.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: username }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById("result").innerHTML =
+                JSON.stringify(data);
+            });
+        });
+    </script>
+  </body>
+</html>

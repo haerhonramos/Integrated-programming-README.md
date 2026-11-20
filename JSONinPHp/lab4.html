@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Lab 4 - Handling JSON Input</title>
+  </head>
+  <body>
+    <h2>Lab Exercise 4: Handling JSON Input</h2>
+
+    <form id="myForm">
+      <label>Username:</label>
+      <input type="text" id="username" value="admin" required />
+
+      <br /><br />
+
+      <label>Password:</label>
+      <input type="text" id="password" value="1234" required />
+
+      <br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <h3>Output:</h3>
+    <div id="result"></div>
+
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let username = document.getElementById("username").value;
+          let password = document.getElementById("password").value;
+
+          fetch("lab4_input.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              username: username,
+              password: password,
+            }),
+          })
+            .then((response) => response.text())
+
+            .then((data) => {
+              document.getElementById("result").innerHTML = data;
+            });
+        });
+    </script>
+  </body>
+</html>
