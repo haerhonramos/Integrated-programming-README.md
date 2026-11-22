@@ -1,0 +1,15 @@
+1. What are the main differences between XMLHttpRequest and Fetch API?
+
+XMLHttpRequest uses event handlers like onreadystatechange to handle requests, while Fetch API uses Promises with .then() and .catch(). Fetch API also has a simpler and more readable syntax.
+
+2. Why is Fetch API considered more modern and readable?
+
+Fetch API is considered more modern because it uses a simpler syntax and makes asynchronous requests easier to understand and manage. It also works well with Promises and async/await.
+
+3. What is the purpose of .then() and .catch() in Fetch API?
+
+.then() is used to handle the successful response or result of a request. Meanwhile, .catch() is used to handle errors that may happen during the request, such as network problems.
+
+4. What happens when you send a POST request to the placeholder API?
+
+When a POST request is sent, the API simulates creating a new post and returns a response containing the post details and a generated ID, which is 101. The post is not permanently saved because JSONPlaceholder is only a testing API.
